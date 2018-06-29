@@ -1,0 +1,25 @@
+*.iml
+/local.properties
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+/gradle.properties
+
+# apk files
+*.apk
+*.ap_
+
+# dex
+*.dex
+
+# compiled classes
+*.class
+
+# generated
+bin/
+gen/
+

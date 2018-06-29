@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_main_margin8">8dp</dimen>
+    <dimen name="activity_main_margin16">16dp</dimen>
+
+    <dimen name="activity_detail_img_toolbar">200dp</dimen>
+    <dimen name="activity_detail_posterimg_height">160dp</dimen>
+    <dimen name="activity_detail_posterimg_width">120dp</dimen>
+</resources>

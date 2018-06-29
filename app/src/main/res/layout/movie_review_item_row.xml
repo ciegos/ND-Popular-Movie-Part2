@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/activity_main_margin16"
+    android:layout_marginRight="@dimen/activity_main_margin16">
+    <TextView
+        android:id="@+id/movie_review_author_tv"
+        style="@style/MovieAuthorLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/movie_review_content_expandable_tv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Author" />
+    <com.ms.square.android.expandabletextview.ExpandableTextView
+        xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/movie_review_content_expandable_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        expandableTextView:maxCollapsedLines="4"
+        expandableTextView:animDuration="200"
+        app:layout_constraintTop_toBottomOf="@+id/movie_review_author_tv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+        <TextView
+            android:id="@+id/expandable_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_main_margin8"
+            android:layout_marginRight="@dimen/activity_main_margin8"
+            style="@style/MovieDetailData"/>
+        <ImageButton
+            android:id="@id/expand_collapse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:layout_gravity="right|bottom"
+            android:background="@android:color/transparent"/>
+    </com.ms.square.android.expandabletextview.ExpandableTextView>
+</android.support.constraint.ConstraintLayout>

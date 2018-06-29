@@ -1,0 +1,73 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorBackground">@android:color/white</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
+        <item name="coordinatorLayoutStyle">@style/Widget.Design.CoordinatorLayout</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorControlNormal">@android:color/white</item>
+    </style>
+
+    <style name="MovieRowTitle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:background">@android:color/white</item>
+    </style>
+
+    <style name="MovieDetailTitleExpanded">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="MovieDetailTitleCollapsed">
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="MovieDetailLabel">
+        <item name="android:layout_marginLeft">@dimen/activity_main_margin16</item>
+        <item name="android:layout_marginRight">@dimen/activity_main_margin16</item>
+        <item name="android:layout_marginTop">@dimen/activity_main_margin16</item>
+        <item name="android:layout_marginBottom">@dimen/activity_main_margin8</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/holo_orange_dark</item>
+    </style>
+
+    <style name="MovieAuthorLabel">
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/holo_blue_light</item>
+    </style>
+
+
+    <style name="MovieContentData">
+        <item name="android:layout_marginBottom">@dimen/activity_main_margin8</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="MovieDetailData">
+        <item name="android:layout_marginLeft">@dimen/activity_main_margin16</item>
+        <item name="android:layout_marginRight">@dimen/activity_main_margin16</item>
+        <item name="android:layout_marginBottom">@dimen/activity_main_margin8</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+</resources>

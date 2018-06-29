@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name" translatable="true">Popular movies</string>
+
+    <string name="change_itemtype" translatable="true">Sort items by</string>
+
+    <string name="movie_releasedate_label" translatable="true">Release date</string>
+    <string name="movie_synopsis_label" translatable="true">Synopsis</string>
+    <string name="error_message" translatable="true">There was an error while trying to retrieve the list of movies</string>
+    <string name="movie_rating_label" translatable="true">Rating</string>
+    <string name="movie_rating_value" translatable="false">%1$.1f/10</string>
+    <string name="movie_votes_value" translatable="true">%1$d votes</string>
+    <string name="movie_trailer_label" translatable="true">Trailers</string>
+    <string name="movie_review_label" translatable="true">Reviews</string>
+
+    <string name="movielist_poster_content" translatable="true">Movie poster for: %1$s</string>
+    <string name="movielist_trailer_content" translatable="true">Trailer: %1$s</string>
+
+    <string name="player_error" translatable="true">Error initializing YouTube player: %s</string>
+    <string name="seek_to" translatable="true">Jump To</string>
+    <string name="seek_to_hint" translatable="true">Seconds</string>
+    <string name="added_favorite" translatable="true">Successfully added to your favorite movies</string>
+    <string name="removed_favorite" translatable="true">Successfully removed from your favorite movies</string>
+    <string name="empty_movie_review_label" translatable="true">There are still no reviews for this movie</string>
+    <string name="empty_movie_trailer_label" translatable="true">No trailers were found for this movie</string>
+
+    <array name="search_type" translatable="true">
+        <item>Popular movies</item>
+        <item>Top Rated</item>
+        <item>My favorite movies</item>
+    </array>
+</resources>

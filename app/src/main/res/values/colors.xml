@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#29b6f6</color>
+    <color name="colorPrimaryDark">#0277bd</color>
+    <color name="colorAccent">#ffcc80</color>
+
+    <color name="movieTitleTVBack">#eaeced</color>
+    <color name="movieTitleTVBorder">#4fa5d5</color>
+    <color name="movieTitleTVBackWithAlpha">#ffeaeced</color>
+
+    <color name="movieDetailFavoriteFAB">#FF5252</color>
+</resources>
