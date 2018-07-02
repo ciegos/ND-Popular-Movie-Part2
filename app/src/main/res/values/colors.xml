@@ -9,4 +9,5 @@
     <color name="movieTitleTVBackWithAlpha">#ffeaeced</color>
 
     <color name="movieDetailFavoriteFAB">#FF5252</color>
+    <color name="movieDetailNoFavoriteFAB">#3399ff</color>
 </resources>

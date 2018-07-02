@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinator_layout_detail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".activity.DetailActivity">
@@ -49,13 +50,15 @@
             android:layout_margin="@dimen/activity_main_margin16"
             app:layout_anchor="@+id/main_appbar"
             app:layout_anchorGravity="bottom|end"
-            app:backgroundTint="@color/movieDetailFavoriteFAB"
+            app:backgroundTint="@color/movieDetailNoFavoriteFAB"
             android:src="@drawable/ic_favorite_24dp" />
         <android.support.v4.widget.NestedScrollView
+            android:id="@+id/nested_scroll_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
             <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraint_movie_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 

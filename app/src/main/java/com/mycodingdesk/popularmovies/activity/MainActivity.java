@@ -2,9 +2,12 @@ package com.mycodingdesk.popularmovies.activity;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.AsyncTaskLoader;
@@ -13,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 
 import com.mycodingdesk.popularmovies.R;
 import com.mycodingdesk.popularmovies.adapter.MovieAdapter;
@@ -37,6 +41,8 @@ public class MainActivity extends AppCompatActivity
     private boolean mIsTablet;
     private static final int GRID_LAYOUT_SPAN = 2;
     private static final int MOVIE_LOADER_ID = 5553;
+    private static final String PREF_MOVIE_NAME = "PREF_MOVIE_NAME";
+    private static final String PREF_SEARCH_TYPE_KEY = "PREF_SEARCH_TYPE_KEY";
     private MainViewModel mViewModel;
 
     private final AdapterView.OnItemSelectedListener spinnerChangeQueryListener = new AdapterView.OnItemSelectedListener() {
@@ -53,6 +59,23 @@ public class MainActivity extends AppCompatActivity
         public void onNothingSelected(AdapterView<?> parent) {
         }
     };
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences prefs = this.getSharedPreferences(PREF_MOVIE_NAME, Context.MODE_PRIVATE);
+        prefs.edit().putString(PREF_SEARCH_TYPE_KEY, mMainActivityBinding.changeQuerySpin.getSelectedItem().toString()).commit();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences prefs = this.getSharedPreferences(PREF_MOVIE_NAME, Context.MODE_PRIVATE);
+        if(prefs.contains(PREF_SEARCH_TYPE_KEY))
+            mMainActivityBinding.changeQuerySpin.setSelection(((ArrayAdapter)mMainActivityBinding.changeQuerySpin.getAdapter())
+                    .getPosition(prefs.getString(PREF_SEARCH_TYPE_KEY,"")));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

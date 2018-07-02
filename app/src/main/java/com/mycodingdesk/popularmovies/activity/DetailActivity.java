@@ -132,13 +132,13 @@ public class DetailActivity extends AppCompatActivity implements
         mDetailActivityBinding.movieReviewRecycler.setAdapter(mMovieReviewAdapter);
 
         mAppDb = AppDatabase.getInstance(getApplicationContext());
-        setupViewModel();
 
         Intent intent = getIntent();
         if (intent != null) {
             if (intent.hasExtra(MOVIE_DATA)) {
                 mMovie = intent.getParcelableExtra(MOVIE_DATA);
                 displayMovieData(mMovie);
+                setupViewModel();
             }
         }
     }
@@ -155,6 +155,7 @@ public class DetailActivity extends AppCompatActivity implements
                         break;
                     }
                 }
+                checkAsFavorite(mAdded);
             }
         });
     }
@@ -230,6 +231,13 @@ public class DetailActivity extends AppCompatActivity implements
             });
             Toast.makeText(DetailActivity.this, getString(R.string.removed_favorite), Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void checkAsFavorite(boolean isFavorite) {
+        if(isFavorite)
+            mDetailActivityBinding.favoriteMovieFab.setBackgroundTintList(getResources().getColorStateList(R.color.movieDetailFavoriteFAB));
+        else
+            mDetailActivityBinding.favoriteMovieFab.setBackgroundTintList(getResources().getColorStateList(R.color.movieDetailNoFavoriteFAB));
     }
 
     private static class MovieTrailerTaskLoader extends AsyncTaskLoader<List<MovieTrailer>> {
