@@ -59,6 +59,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieAdapter
     }
 
     public void setMovieList(List<Movie> mMovieList, URL imageUrl){
+        this.mMovieList = null;
         this.mImageUrl = imageUrl;
         this.mMovieList = mMovieList;
         notifyDataSetChanged();

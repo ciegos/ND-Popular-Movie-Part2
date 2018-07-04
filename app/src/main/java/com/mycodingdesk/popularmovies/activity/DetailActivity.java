@@ -28,6 +28,7 @@ import com.mycodingdesk.popularmovies.model.MovieTrailer;
 import com.mycodingdesk.popularmovies.model.MovieTrailerResult;
 import com.mycodingdesk.popularmovies.network.MovieAPI;
 import com.mycodingdesk.popularmovies.network.NetworkUtil;
+import com.mycodingdesk.popularmovies.viewmodel.DetailViewModel;
 import com.mycodingdesk.popularmovies.viewmodel.MainViewModel;
 import com.squareup.picasso.Picasso;
 
@@ -144,7 +145,7 @@ public class DetailActivity extends AppCompatActivity implements
     }
 
     private void setupViewModel() {
-        MainViewModel viewModel = ViewModelProviders.of(this).get(MainViewModel.class);
+        DetailViewModel viewModel = ViewModelProviders.of(this).get(DetailViewModel.class);
         viewModel.getMovies().observe(this, new Observer<List<Movie>>() {
             @Override
             public void onChanged(@Nullable List<Movie> movies) {

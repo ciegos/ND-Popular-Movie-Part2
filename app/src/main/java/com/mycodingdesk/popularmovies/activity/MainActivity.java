@@ -52,8 +52,10 @@ public class MainActivity extends AppCompatActivity
                 if(mViewModel != null) mViewModel.getMovies().removeObservers(MainActivity.this);
                 getSupportLoaderManager().restartLoader(MOVIE_LOADER_ID, null, MainActivity.this);
             }
-            else
+            else {
+                getSupportLoaderManager().destroyLoader(MOVIE_LOADER_ID);
                 setupMainViewModel();
+            }
         }
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
@@ -72,9 +74,14 @@ public class MainActivity extends AppCompatActivity
     protected void onResume() {
         super.onResume();
         SharedPreferences prefs = this.getSharedPreferences(PREF_MOVIE_NAME, Context.MODE_PRIVATE);
-        if(prefs.contains(PREF_SEARCH_TYPE_KEY))
+        if(prefs.contains(PREF_SEARCH_TYPE_KEY)){
             mMainActivityBinding.changeQuerySpin.setSelection(((ArrayAdapter)mMainActivityBinding.changeQuerySpin.getAdapter())
-                    .getPosition(prefs.getString(PREF_SEARCH_TYPE_KEY,"")));
+                    .getPosition(prefs.getString(PREF_SEARCH_TYPE_KEY,"")), true);
+        }
+        else {
+            mMainActivityBinding.changeQuerySpin.setSelection(0, true);
+        }
+
     }
 
     @Override
@@ -85,15 +92,15 @@ public class MainActivity extends AppCompatActivity
         mMainActivityBinding.movieListRecycler.setLayoutManager(new StaggeredGridLayoutManager(GRID_LAYOUT_SPAN,
                 StaggeredGridLayoutManager.VERTICAL));
         mMainActivityBinding.movieListRecycler.setHasFixedSize(true);
+
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.search_type));
+        mMainActivityBinding.changeQuerySpin.setAdapter(adapter);
         mMainActivityBinding.changeQuerySpin.setOnItemSelectedListener(spinnerChangeQueryListener);
 
         mMovieAdapter = new MovieAdapter(this);
         mMainActivityBinding.movieListRecycler.setAdapter(mMovieAdapter);
 
         mIsTablet = getResources().getBoolean(R.bool.isTablet);
-
-        getSupportLoaderManager().initLoader(MOVIE_LOADER_ID, null, this);
-
     }
 
     @NonNull
@@ -162,8 +169,8 @@ public class MainActivity extends AppCompatActivity
         mViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
         mViewModel.getMovies().observe(this, new Observer<List<Movie>>() {
             @Override
-            public void onChanged(@Nullable List<Movie> movies) {
-                mMovieAdapter.setMovieList(movies, MovieAPI.buildImageURL(mIsTablet));
+            public void onChanged(@Nullable List<Movie> moviesFromDb) {
+                mMovieAdapter.setMovieList(moviesFromDb, MovieAPI.buildImageURL(mIsTablet));
             }
         });
     }
